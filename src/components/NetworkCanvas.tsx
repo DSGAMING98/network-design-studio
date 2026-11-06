@@ -50,7 +50,6 @@ export const NetworkCanvas = forwardRef<NetworkCanvasHandle, Props>(function Net
       ],
       minZoom: 0.3,
       maxZoom: 2.6,
-      wheelSensitivity: 0.2,
       style: [
         { selector: "node", style: { "background-color": "#f5efe2", "border-color": "#d59838", "border-width": 4, color: "#f8f3e8", label: "data(label)", "font-size": 11, "font-weight": 700, "text-valign": "bottom", "text-margin-y": 9, "text-wrap": "wrap", "text-max-width": "90px", width: 34, height: 34 } },
         { selector: "edge", style: { label: "data(label)", color: "#d9d1c2", "font-size": 10, "text-background-color": "#15231f", "text-background-opacity": 0.94, "text-background-padding": "3px", "line-color": "#63716c", width: 2.2, opacity: 0.52, "curve-style": "bezier" } },
