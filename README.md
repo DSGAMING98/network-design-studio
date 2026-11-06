@@ -9,7 +9,6 @@
 <p align="center">
   <a href="https://network-design-studio-xi.vercel.app">Live application</a> ·
   <a href="https://github.com/DSGAMING98/network-design-studio">Source</a> ·
-  <a href="docs/VIVA_GUIDE.md">Viva guide</a> ·
   <a href="docs/PROJECT_REPORT.md">Project report</a>
 </p>
 
@@ -165,9 +164,9 @@ The project turns abstract greedy proofs into observable state changes. Students
 - Browser layouts are intended for classroom-scale graphs rather than millions of edges.
 - Future work could add sensitivity analysis, second-best MSTs, and formal cut visualizations.
 
-## Academic use
+## Academic documentation
 
-This repository includes a [viva guide](docs/VIVA_GUIDE.md) and a [project report source](docs/PROJECT_REPORT.md). Correlation or feature-analysis claims from the earlier GraphLens project are not used here; this is an independent combinatorial-optimization application.
+The repository includes a formal [project report](docs/PROJECT_REPORT.md) documenting the problem statement, mathematical foundation, implementation, validation, results, limitations, and conclusion. This is an independent combinatorial-optimization application for the official DMGT Topic 4 outcome.
 
 ## License
 
