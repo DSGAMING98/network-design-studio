@@ -2,8 +2,14 @@ import { describe, expect, it } from "vitest";
 import { analyzeGraph, connectedComponents, hasCycle, runKruskal, runPrim, validateGraph, weightedAdjacencyMatrix } from "./mst";
 import { METRO_FIBRE, WORKED_EXAMPLE } from "./samples";
 import type { NetworkGraph } from "./types";
+import { formatCost } from "./currency";
 
 describe("minimum spanning tree engine", () => {
+  it("formats Indian costs with the rupee symbol before the amount", () => {
+    expect(formatCost(9, "₹ lakh")).toBe("₹ 9 lakh");
+    expect(formatCost(1250.5, "₹")).toBe("₹ 1,250.5");
+  });
+
   it("solves the fully worked example with cost 9", () => {
     const kruskal = runKruskal(WORKED_EXAMPLE);
     const prim = runPrim(WORKED_EXAMPLE, "A");

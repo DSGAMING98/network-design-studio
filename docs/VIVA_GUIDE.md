@@ -50,7 +50,7 @@ MST = `{BC, AB, DE, BD}`. It has four edges, exactly `|V| − 1 = 4`.
 5. Accept BD(4); visited `{A,B,C,D}`; cost = 7.
 6. Accept DE(2); visited all vertices; cost = 9.
 
-Both algorithms return the same minimum cost: `₹9 lakh`. Savings relative to all candidate edges are `30 − 9 = ₹21 lakh`, or `21/30 × 100 = 70%`.
+Both algorithms return the same minimum cost: `₹ 9 lakh`. Savings relative to all candidate edges are `₹ 30 lakh − ₹ 9 lakh = ₹ 21 lakh`, or `21/30 × 100 = 70%`.
 
 ## Likely viva questions
 
@@ -106,9 +106,9 @@ The academic model defines nonnegative installation costs. MST algorithms can ma
 ## Demonstration sequence
 
 1. Open the Design Summary and state the official outcome.
-2. Point to candidate cost ₹30 lakh and minimum cost ₹9 lakh.
-3. Open the Network Visualizer and identify gold MST edges.
+2. Point to candidate cost ₹ 30 lakh and minimum cost ₹ 9 lakh.
+3. Open the Network Visualizer and identify the bright-blue MST edges.
 4. Advance Kruskal until AC is rejected as a cycle.
 5. Advance Prim and describe the visited cut/frontier.
-6. Open Algorithm Comparison and show `₹9 lakh = ₹9 lakh`.
+6. Open Algorithm Comparison and show `₹ 9 lakh = ₹ 9 lakh`.
 7. Open DMGT Mathematics to show adjacency representations and correctness reasoning.

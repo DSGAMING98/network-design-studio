@@ -1,4 +1,5 @@
 import type { AlgorithmStep, MstResult, NetworkEdge, NetworkGraph, ValidationResult } from "./types";
+import { formatCost } from "./currency";
 
 const edgeKey = (edge: NetworkEdge) => [Math.min(edge.cost, Number.MAX_VALUE), ...[edge.source, edge.target].sort(), edge.id] as const;
 
@@ -155,7 +156,7 @@ function finalizeResult(graph: NetworkGraph, algorithm: "Kruskal" | "Prim", sele
     action: "complete",
     title: connected ? "Minimum spanning tree complete" : "Minimum spanning forest complete",
     explanation: connected
-      ? `${selected.length} = |V| − 1 edges connect every location with total cost ${totalCost} ${graph.unit}.`
+      ? `${selected.length} = |V| − 1 edges connect every location with total cost ${formatCost(totalCost, graph.unit)}.`
       : `A single spanning tree is impossible: the graph has ${components.length} components. The forest contains ${selected.length} edges.`,
     selectedEdgeIds: selected.map((edge) => edge.id),
     runningCost: totalCost,
@@ -181,13 +182,13 @@ export function runKruskal(graph: NetworkGraph): MstResult {
     if (selected.length === target) break;
     processed += 1;
     const createsCycle = dsu.find(edge.source) === dsu.find(edge.target);
-    steps.push({ index: steps.length, action: "inspect", title: `Inspect ${edge.source}–${edge.target}`, explanation: `This is the next lowest-cost remaining edge (cost ${edge.cost} ${graph.unit}).`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), createsCycle });
+    steps.push({ index: steps.length, action: "inspect", title: `Inspect ${edge.source}–${edge.target}`, explanation: `This is the next lowest-cost remaining edge (cost ${formatCost(edge.cost, graph.unit)}).`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), createsCycle });
     if (createsCycle) {
       steps.push({ index: steps.length, action: "reject", title: "Reject: cycle detected", explanation: `${edge.source} and ${edge.target} are already connected, so adding this edge would create a cycle.`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), createsCycle: true });
     } else {
       dsu.union(edge.source, edge.target);
       selected.push(edge);
-      steps.push({ index: steps.length, action: "accept", title: "Accept edge", explanation: `The edge joins two different components. Running cost becomes ${selected.reduce((sum, e) => sum + e.cost, 0)} ${graph.unit}.`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), createsCycle: false });
+      steps.push({ index: steps.length, action: "accept", title: "Accept edge", explanation: `The edge joins two different components. Running cost becomes ${formatCost(selected.reduce((sum, e) => sum + e.cost, 0), graph.unit)}.`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), createsCycle: false });
     }
   }
   return finalizeResult(graph, "Kruskal", selected, processed, steps);
@@ -217,7 +218,7 @@ export function runPrim(graph: NetworkGraph, requestedStart?: string): MstResult
       const targetVisited = visited.has(edge.target);
       processed += 1;
       const frontier = graph.edges.filter((candidate) => visited.has(candidate.source) !== visited.has(candidate.target)).sort(compareEdges);
-      steps.push({ index: steps.length, action: "inspect", title: `Choose frontier minimum ${edge.source}–${edge.target}`, explanation: `The minimum queued edge costs ${edge.cost} ${graph.unit}.`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), visited: [...visited].sort(), frontierEdgeIds: frontier.map((e) => e.id), createsCycle: sourceVisited && targetVisited });
+      steps.push({ index: steps.length, action: "inspect", title: `Choose frontier minimum ${edge.source}–${edge.target}`, explanation: `The minimum queued edge costs ${formatCost(edge.cost, graph.unit)}.`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), visited: [...visited].sort(), frontierEdgeIds: frontier.map((e) => e.id), createsCycle: sourceVisited && targetVisited });
       if (sourceVisited && targetVisited) {
         steps.push({ index: steps.length, action: "reject", title: "Skip stale edge", explanation: "Both endpoints are already in the tree, so this edge would create a cycle.", edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), visited: [...visited].sort(), frontierEdgeIds: frontier.map((e) => e.id), createsCycle: true });
         continue;
@@ -230,7 +231,7 @@ export function runPrim(graph: NetworkGraph, requestedStart?: string): MstResult
         if (!visited.has(other)) queue.push(candidate);
       }
       const nextFrontier = graph.edges.filter((candidate) => visited.has(candidate.source) !== visited.has(candidate.target)).sort(compareEdges);
-      steps.push({ index: steps.length, action: "accept", title: `Add ${next} to the tree`, explanation: `Accept ${edge.source}–${edge.target}; running cost becomes ${selected.reduce((sum, e) => sum + e.cost, 0)} ${graph.unit}.`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), visited: [...visited].sort(), frontierEdgeIds: nextFrontier.map((e) => e.id), createsCycle: false });
+      steps.push({ index: steps.length, action: "accept", title: `Add ${next} to the tree`, explanation: `Accept ${edge.source}–${edge.target}; running cost becomes ${formatCost(selected.reduce((sum, e) => sum + e.cost, 0), graph.unit)}.`, edge, selectedEdgeIds: selected.map((e) => e.id), runningCost: selected.reduce((sum, e) => sum + e.cost, 0), visited: [...visited].sort(), frontierEdgeIds: nextFrontier.map((e) => e.id), createsCycle: false });
     }
   }
   return finalizeResult(graph, "Prim", selected, processed, steps);

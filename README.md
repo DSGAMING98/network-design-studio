@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/network-design-studio.svg" width="112" alt="Network Design Studio logo" />
+  <img src="public/network-design-studio-logo.png" width="420" alt="Network Design Studio logo" />
 </p>
 
 <h1 align="center">Network Design Studio</h1>
@@ -28,13 +28,13 @@ The default Campus Backbone graph contains five locations and eight candidate co
 | Quantity | Verified result |
 | --- | ---: |
 | Candidate edges | AB₂, AC₃, BC₁, BD₄, CD₅, CE₆, DE₂, BE₇ |
-| Cost of every candidate | ₹30 lakh |
+| Cost of every candidate | ₹ 30 lakh |
 | Kruskal MST | BC₁, AB₂, DE₂, BD₄ |
 | Prim MST from A | AB₂, BC₁, BD₄, DE₂ |
-| Minimum total cost | **₹9 lakh** |
-| Cost avoided | **₹21 lakh (70%)** |
+| Minimum total cost | **₹ 9 lakh** |
+| Cost avoided | **₹ 21 lakh (70%)** |
 | Edge-count certificate | 4 = 5 − 1 |
-| Kruskal/Prim agreement | **Yes — ₹9 lakh = ₹9 lakh** |
+| Kruskal/Prim agreement | **Yes — ₹ 9 lakh = ₹ 9 lakh** |
 
 The different edge order is expected because the algorithms use different greedy views. The final edge set and cost agree for this example.
 
@@ -52,6 +52,7 @@ The different edge order is expected because the algorithms use different greedy
 - Fully worked, hand-verifiable example for both algorithms
 - Adjacency list and weighted adjacency matrix
 - CSV, JSON, PNG, and print-ready exports
+- Polished navy-and-blue visual system based on the official project logo
 - Light and dark themes with responsive desktop/mobile layout
 - Explicit minimum spanning forest handling for disconnected graphs
 
@@ -142,7 +143,7 @@ Verified on 6 November 2026:
 
 - TypeScript: passed
 - ESLint: passed with zero warnings
-- Vitest: 12 tests passed
+- Vitest: 13 tests passed
 - Next.js production build: passed
 - Production dependency audit: 0 vulnerabilities
 - Browser QA: dashboard, visualizer, Kruskal controls, and comparison lab verified

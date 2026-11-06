@@ -8,6 +8,6 @@ describe("Network Design Studio", () => {
     expect(screen.getByText(/Connect every location/i)).toBeInTheDocument();
     expect(screen.getByText(/Kruskal and Prim agree/i)).toBeInTheDocument();
     expect(screen.getByText(/Campus Backbone example/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/9 ₹ lakh/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/₹ 9 lakh/i).length).toBeGreaterThan(0);
   });
 });

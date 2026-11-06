@@ -60,7 +60,7 @@ The algorithm starts from a selected vertex. A binary min-heap stores frontier e
 
 `E = {AB₂, AC₃, BC₁, BD₄, CD₅, CE₆, DE₂, BE₇}`
 
-All-edge cost is `30 ₹ lakh`.
+All-edge cost is `₹ 30 lakh`.
 
 Kruskal sorts the edges and makes these decisions:
 
@@ -72,7 +72,7 @@ Kruskal sorts the edges and makes these decisions:
 | 4 | AC(3) | Reject; cycle | 5 |
 | 5 | BD(4) | Accept; connects remaining components | 9 |
 
-Prim from A accepts AB(2), BC(1), BD(4), and DE(2), reaching the same total 9. The network avoids `30−9=21 ₹ lakh`, a `70%` reduction. Four selected edges equal `5−1`, and the graph is connected and acyclic.
+Prim from A accepts AB(2), BC(1), BD(4), and DE(2), reaching the same total 9. The network avoids `₹ 30 lakh − ₹ 9 lakh = ₹ 21 lakh`, a `70%` reduction. Four selected edges equal `5−1`, and the graph is connected and acyclic.
 
 ## 7. System design
 
@@ -93,11 +93,11 @@ The presentation layer uses Next.js, React, TypeScript, Tailwind CSS, and a cust
 
 Automated tests cover known MSTs, ties, cycles, disconnected graphs, isolated and single vertices, invalid inputs, duplicate edges, adjacency matrices, trace totals, and CSV parsing. TypeScript, ESLint, Vitest, the Next.js production compiler, and a production dependency audit are executed before deployment.
 
-Verified result: 12 tests pass; type checking, linting, and production build pass; production dependency audit reports zero vulnerabilities.
+Verified result: 13 tests pass; type checking, linting, and production build pass; production dependency audit reports zero vulnerabilities.
 
 ## 10. Results
 
-The default example demonstrates the expected outcome directly. Kruskal and Prim independently produce an MST cost of ₹9 lakh. The UI provides both decision sequences, highlights selected links, and quantifies savings against full installation.
+The default example demonstrates the expected outcome directly. Kruskal and Prim independently produce an MST cost of ₹ 9 lakh. The UI provides both decision sequences, highlights selected links, and quantifies savings against full installation.
 
 ## 11. Limitations
 
