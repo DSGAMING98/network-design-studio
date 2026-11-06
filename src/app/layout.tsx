@@ -6,6 +6,7 @@ const geist = Geist({ variable: "--font-sans", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://network-design-studio-xi.vercel.app"),
   title: "Network Design Studio — Minimum Spanning Trees",
   description: "Design a minimum-cost connected network and compare Kruskal's and Prim's minimum spanning tree algorithms step by step.",
   icons: { icon: "/network-design-studio.svg", apple: "/network-design-studio.svg" },

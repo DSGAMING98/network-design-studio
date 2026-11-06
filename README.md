@@ -7,6 +7,7 @@
 <p align="center"><strong>A mathematically verifiable minimum spanning tree laboratory for cost-effective network design.</strong></p>
 
 <p align="center">
+  <a href="https://network-design-studio-xi.vercel.app">Live application</a> ·
   <a href="https://github.com/DSGAMING98/network-design-studio">Source</a> ·
   <a href="docs/VIVA_GUIDE.md">Viva guide</a> ·
   <a href="docs/PROJECT_REPORT.md">Project report</a>
