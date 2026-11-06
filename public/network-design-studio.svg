@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Network Design Studio</title>
+  <desc id="desc">A minimum spanning tree joining five network locations.</desc>
+  <rect width="512" height="512" rx="112" fill="#15231f"/>
+  <path d="M112 358 176 154l90 94 112-106M112 358l154-110 118 112M176 154l208 206" fill="none" stroke="#e4a64a" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M176 154 112 358m154-110 118 112" fill="none" stroke="#f4efe5" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#f4efe5" stroke="#b9751e" stroke-width="14">
+    <circle cx="176" cy="154" r="31"/><circle cx="266" cy="248" r="31"/><circle cx="112" cy="358" r="31"/><circle cx="378" cy="142" r="31"/><circle cx="384" cy="360" r="31"/>
+  </g>
+</svg>
